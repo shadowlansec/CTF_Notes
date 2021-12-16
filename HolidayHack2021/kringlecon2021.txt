@@ -1,0 +1,115 @@
+
+HELP!!!
+
+This critical application is supposed to tell us the sweetness levels of our candy
+manufacturing output (among other important things), but I can't get it to run.
+
+It keeps saying something something yara. Can you take a look and see if you
+can help get this application to bypass Sparkle Redberry's Yara scanner?
+
+If we can identify the rule that is triggering, we might be able change the program
+to bypass the scanner.
+
+We have some tools on the system that might help us get this application going:
+vim, emacs, nano, yara, and xxd
+
+The children will be very disappointed if their candy won't even cause a single cavity.
+
+snowball2@bae40b99e336:~$ ./the_critical_elf_app 
+yara_rule_135 ./the_critical_elf_app
+snowball2@bae40b99e336:~$ 
+
+yara rule 135
+344876feb64a9e282afadc7c9f83a18e  ./the_critical_elf_app
+
+line 4373
+rule yara_rule_135 {
+   meta:
+      description = "binaries - file Sugar_in_the_machinery"
+      author = "Sparkle Redberry"
+      reference = "North Pole Malware Research Lab"
+      date = "1955-04-21"
+      hash = "19ecaadb2159b566c39c999b0f860b4d8fc2824eb648e275f57a6dbceaf9b488"
+   strings:
+      $s = "candycane"
+   condition:
+      $s
+}
+
+
+updated the_critical_elf_app to remove candycane
+snowball2@5aab318fa4d0:~$ ./the_critical_elf_app
+yara_rule_1056 ./the_critical_elf_app
+
+
+rule yara_rule_1065 {
+   meta:
+      description = "binaries - file AndroratActivity.smali"
+      author = "Sparkle Redberry"
+      reference = "North Pole Malware Research Lab"
+      date = "2021-04-22"
+      hash1 = "60179a813446581fd06b3bb7bb9b03c93aab934a12b6569557ad8ac8121f757d"
+   strings:
+      $s1 = ".method public onCreate(Landroid/os/Bundle;)V" fullword ascii
+      $s2 = ".super Landroid/app/Activity;" fullword ascii
+      $s3 = ".source \"AndroratActivity.java\"" fullword ascii
+      $s4 = "    invoke-virtual {p0, v0}, Lmy/app/client/AndroratActivity;->setContentView(I)V>
+      $s5 = ".class public Lmy/app/client/AndroratActivity;" fullword ascii
+   condition:
+      uint16(0) == 0x632e and filesize < 2KB and
+      all of them
+}
+
+
+########### the elf code ################
+munchkin.answer(answer)
+elf.moveLeft(1)
+elf.moveRight(2)
+sum = lever.data() * 3
+lever.pull(sum)
+
+import elf, munchkins, levers, lollipops, yeeters, pits
+# Grab our lever object
+lever = levers.get(0)
+munchkin = munchkins.get(0)
+lollipop = lollipops.get(0)
+# move to lever position
+elf.moveTo(lever.position)
+# get lever int and add 2 and submit val
+leverData = lever.data() + 2
+lever.pull(leverData)
+# Grab lollipop and stand next to munchkin
+elf.moveLeft(1)
+elf.moveUp(8)
+# Solve the munchkin's challenge
+munchList = munchkin.ask() # e.g. [1, 3, "a", "b", 4]
+answer_list = []
+for elem in munchList:
+    if type(elem) == int:
+        answer_list.append(elem)
+munchkin.answer(answer_list)
+elf.moveUp(2) # Move to finish
+
+
+#### LEVEL 2
+import elf, munchkins, levers, lollipops, yeeters, pits
+# Gets all lollipops as a list
+all_lollipops = lollipops.get()
+# Can set lollipop1 using:
+lollipop1 = all_lollipops[1]
+# or:
+lollipop0 = all_lollipops[0]
+elf.moveTo(lollipop1.position)
+elf.moveTo(lollipop0.position)
+elf.moveTo({'x':2, 'y':2})
+
+
+
+#### Level 3
+You can walk past the Yeeter once you complete lever0's task and lever0.pull(modified_data) in the desired way to disable to Yeeter trap. Click on the lever 0 object in the CURRENT LEVEL OBJECTS panel for more information.
+import elf, munchkins, levers, lollipops, yeeters, pits
+lever0 = levers.get(0)
+lollipop0 = lollipops.get(0)
+sum = lever0.data() + 2
+lever0.pull(sum)
+elf.moveTo(lollipop0.position)
